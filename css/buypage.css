@@ -1,0 +1,29 @@
+.pphoto{
+    margin-top: 15px;
+    width: 200px;
+    height: 200px;
+}
+.pname{
+    margin-top: 15px;
+    font-family: 'Gugi', cursive;
+    font-size: 98%
+}
+.navbar{
+    background-image: url("D:/wamp64/www/sp/images/background.jpg");
+}
+
+body{
+    background-image: url("D:/wamp64/www/sp/images/background.jpg");
+    background-size: 100%;
+    background-repeat: repeat;
+}
+.nav-link{
+    font-size: 11px;
+}
+.p{
+    margin-top: 30px;
+    width: 300px;
+    height: 300px;
+    background-image: url("D:/wamp64/www/sp/images/pbackground.png");
+    background-origin: border-box;
+}
