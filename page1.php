@@ -20,7 +20,7 @@
         <input type="text" name="address" size="50" value="" placeholder="Ex.Apartment" required><br><br>
         Telephone Number 
         <input type="number" name="telephone" size="50" value="" placeholder="Ex.0657459215" required><br>
-        <br><br>
+        <br>
         Email Address 
         <input type="email" name="email" size="50" value="" required><br><br>
      
