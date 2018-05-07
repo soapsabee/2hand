@@ -3,9 +3,12 @@
     <table align= "center" border = "2">
         <tr><td>
         <center>--REGISTER--</center><br>
+        Username
+        <input type="text" name="username" placeholder="Ex.PanatiPata" pattern="{6,}" required>
+        Password
+        <input type="password" name="password" placeholder="Ex.AbCd1234" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
         Firstname 
         <input type="text" name="Fname" placeholder="Ex.Papaya" required>
-        
         Lastname 
         <input type="text" name="Lname" placeholder="Ex.Poken" required><br><br>
         Gender  

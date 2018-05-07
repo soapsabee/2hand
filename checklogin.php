@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('connectdb.php');
-    $sql = 'SELECT * FROM User WHERE User_Name = "'.$_POST['username'].'" AND User_Password = "'.$_POST['password'].'"';
+    $sql = 'SELECT * FROM user WHERE username = "'.$_POST['username'].'" AND password = "'.$_POST['password'].'"';
     $query = mysqli_query($connect,$sql);
     $result = mysqli_num_rows($query);
 

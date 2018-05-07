@@ -12,9 +12,9 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
 </head>
-
+<?php include("modalLogin.html"); ?>
 <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger">
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="login.html">LOGIN</a>
+                        <a class="nav-link js-scroll-trigger" href="login.php" data-toggle="modal" data-target="#myModal">LOGIN</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.html">เครื่องแต่งกายแฟชั่น</a>
@@ -80,6 +80,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="scriptlogin.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
