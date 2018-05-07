@@ -19,7 +19,7 @@ $(function(){
                     }
                     else{
                         alert("Right Data");
-                        window.location.href = "page2.php";
+                        window.location.href = "index2.php";
                     }
                 }
 
