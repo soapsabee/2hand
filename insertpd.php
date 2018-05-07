@@ -46,7 +46,7 @@ if(isset($_FILES['picfile5']['tmp_name'])){
  array_push($filepic,$_FILES['picfile8']['name']);
  array_push($filepic,$_FILES['picfile9']['name']);
 
-$sql = 'SELECT Product_ID FROM product ORDER BY Product_ID DESC';
+$sql = 'SELECT Product_ID FROM product ORDER BY Product_ID DESC LIMIT 1';
 $query = mysqli_query($connect,$sql);
 $resultid = mysqli_fetch_array($query,MYSQLI_NUM);
 $productid = $resultid[0]+1;
@@ -63,5 +63,8 @@ else{
     
     echo "OK";
 }
+$i = 0;
+while($i < count($filepic)){$sql = 'INSERT INTO product_image (IMG_ID,IMG_NAME,Product_ID) VALUES(NULL,"'.$filepic[$i].'","'.$productid.'")'; $i++;}
+
 
 ?>
