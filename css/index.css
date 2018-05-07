@@ -1,0 +1,29 @@
+.photo1{
+    width: 350px;
+    height: 350px;
+    border:solid;
+    border-width:15px; 
+    border-color: rgb(243, 214, 239);
+    background-color: rgb(255, 91, 241);
+}
+.photo2{
+    width: 350px;
+    height: 350px;
+    border:solid;
+    border-width:15px; 
+    border-color: rgb(215, 245, 217);
+    background-color: rgb(122, 255, 95);
+}
+
+.navbar{
+    background-image: url("D:/wamp64/www/sp/images/background.jpg");
+}
+
+body{
+    background-image: url("D:/wamp64/www/sp/images/background.jpg");
+    background-size: 100%;
+    background-repeat: repeat;
+}
+.nav-link{
+    font-size: 11px;
+}
