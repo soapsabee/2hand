@@ -15,14 +15,21 @@
 </head>
 
 <body>
+<form action="insertpd.php" method="post" enctype="multipart/form-data" id="uploadForm">
     <div class="container">
       <div class="row">
+      
   <div class="form-group col-6">
     <label for="typeproduct" >เลือกหมวดหมู่สินค้า</label>
     <select class="form-control" name="typeproduct" id="">
-      <option></option>
-      <option></option>
-      <option></option>
+      <option value="tech">เทคโนโลยี</option>
+      <option value="sport">กีฬา</option>
+      <option value="car">ยานพาหนะ</option>
+      <option value="home">บ้านและสวน</option>
+      <option value="fashion">แฟชั่น</option>
+      <option value="healty">สุขภาพ</option>
+      <option value="games">เกมส์</option>
+      <option value="music">เครื่องดนตรี</option>
     </select>
   </div>
 
@@ -34,12 +41,12 @@
     </div>
     <div class="form-group col-6">
       <label for="inputprice">ระบุราคาสินค้าที่เหมาะสม</label>
-      <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="c1" />
+      <input name="pdprice" type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="pdprice" />
     </div>
 </div>
 
 รูปภาพสินค้า ใส่รูปได้สูงสุด 9 รูป
-<form action="upimage.php" method="post" enctype="multipart/form-data" id="uploadForm">
+
     
       <div class="row">
          <div class="tagclick">
@@ -110,30 +117,52 @@
     
     <div class="form-group">
       <label for="">รายละเอียดสินค้า</label>
-      <textarea class="form-control col-6" name="" id="" rows="5"></textarea>
+      <textarea class="form-control col-6" name="info_pd" id="" rows="5"></textarea>
     </div>
+
+   <?php include("connectlocate.php");
+         $sql = 'SELECT name_th,id From provinces';
+         $query = mysqli_query($connect,$sql);
+    ?>
 
     <div class="form-group">
       <label for="">ระบุพื้นที่ของสินค้า</label>
-      <select class="form-control col-3" name="" id=""data-toggle="modal" data-target="#myModal" >
-        <option id="option"></option>
-       
+      <select class="form-control col-3" name="province" id="province" >
+      <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+        <option id="option" value="<?php echo $result['name_th']; ?>"><?php echo $result["name_th"];?></option>
+        <?php  } ?>
       </select>
     </div>
+   
+
+  <?php 
+  
+  $sql2 = 'SELECT name_th,province_id From amphures ';
+    $query = mysqli_query($connect,$sql2); ?>
+   
+    <div class="form-group" id="test">
+    <label for="">อำเภอ</label>
+    <select class="form-control col-3" name="ampher" id="ampher">
+    <?php while($result =mysqli_fetch_array($query,MYSQLI_ASSOC)){?>
+    <option id=option value=<?php echo $result['name_th'];?> ><?php echo $result['name_th'];?></option>
+    <?php } ?>
+    
+    </select>
+    </div>
+      
+     
 
     <div class="form-group">
       <label for="">ระบุเบอร์โทรศัพท์</label>
       <input type="tel"
-        class="form-control col-3" name="" id="" aria-describedby="helpId" placeholder="">
+        class="form-control col-3" name="tel_phone" id="" aria-describedby="helpId" placeholder="">
       
     </div>
     <button type="submit" class="btn btn-success">ลงขาย</button>
 </div>
   </form>
  
-  <?php include("locatemodal_page.php");
-        include("locatemodal_page2.php");
-  ?>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script

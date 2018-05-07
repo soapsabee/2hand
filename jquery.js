@@ -167,38 +167,9 @@ $(function(){
         $('#remove9').hide();
     });
 
-    $()
-
-    $('.test').click(function(){
-        
-        var province = $(this).data("province");
-         
-       
-      $.ajax({
-        type: 'POST',
-        data: {province:province},
-        url: 'index.php',
-        success:function(data){
-           
-            if(data=="notok"){
-                alert("WRONG");
-            }
-            else if(data=="OK"){
-                alert("PASS");
-            }
-          
-        }
-           
-        
     
-    });
-    
-    });
 
-    $('#clsmodal2').click(function(){
-        $('#myModal2').modal('hide');
-       
-    });
+ 
    
 
     

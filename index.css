@@ -2,8 +2,9 @@
    border:solid 1px;
    width: 100px;
    height: 100px;
-   background-size: 100px,100px;
+   background-size: 100px 100px;
    background-image: url('image/dfpic.png');
+   background-repeat: no-repeat;
 }
 .remove{
 
