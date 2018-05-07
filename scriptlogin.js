@@ -10,7 +10,7 @@ $(function(){
             
             $.ajax({
 
-                url:'model/checklogin.php',
+                url:'checklogin.php',
                 method:'POST',
                 data:{username:username, password:password},
                 success:function(data){
