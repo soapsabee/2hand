@@ -95,7 +95,10 @@ else{
     echo "OK";
 }
 $i = 0;
-while($i < count($filepic)){$sql = 'INSERT INTO product_image (IMG_ID,IMG_NAME,Product_ID) VALUES(NULL,"'.$filepic[$i].'","'.$productid.'")'; $i++;}
+while($i < count($filepic)){$sql = 'INSERT INTO product_image (IMG_ID,IMG_NAME,Product_ID) VALUES(NULL,"'.$filepic[$i].'","'.$productid.'")';
+$query = mysqli_query($connect,$sql);    
+$i++;
+}
 if(!$query){
 
     die(mysqli_error($connect));
