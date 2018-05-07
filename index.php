@@ -65,7 +65,7 @@
     <div class=" container text-center">
         <div class="row">
             <div class="col">
-                <a href="buypage.html">
+                <a href="buypage.php">
                     <img class="photo1 rounded-circle" src="images/buyicon.png" alt="">
                 </a>
             </div>
