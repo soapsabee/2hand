@@ -11,7 +11,7 @@
     else{
        echo "you can login";
        $_SESSION['username'] = $_POST['username'];
-       header("location:../views/index_user.php");
+       
     }
        
 
