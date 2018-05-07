@@ -3,7 +3,7 @@
 session_start();
 $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
 
-
+$filepic = array();
 
 if(isset($_FILES['picfile1']['tmp_name'])){
     $newpath1 = "image/".$_FILES['picfile1']['name'];
@@ -36,7 +36,22 @@ if(isset($_FILES['picfile5']['tmp_name'])){
     $_FILES['picfile5']['name'] = "image/dfpic.png";
 }
 
-$sql = 'INSERT INTO product (Product_ID, Product_Name, IMG_HEAD, User_Name, Product_Price, Product_Date, Product_Locate, Product_Ampher, Product_Info, Telephone, Product_Type) VALUES(NULL,"'.$_POST['headproduct'].'","'.$_FILES['picfile1']['name'].'","Soap","'.$_POST['pdprice'].'",NOW(),"'.$_POST['province'].'","'.$_POST['ampher'].'","'.$_POST['info_pd'].'","'.$_POST['tel_phone'].'","'.$_POST['typeproduct'].'")';
+ array_push($filepic,$_FILES['picfile1']['name']);
+ array_push($filepic,$_FILES['picfile2']['name']);
+ array_push($filepic,$_FILES['picfile3']['name']);
+ array_push($filepic,$_FILES['picfile4']['name']);
+ array_push($filepic,$_FILES['picfile5']['name']);
+ array_push($filepic,$_FILES['picfile6']['name']);
+ array_push($filepic,$_FILES['picfile7']['name']);
+ array_push($filepic,$_FILES['picfile8']['name']);
+ array_push($filepic,$_FILES['picfile9']['name']);
+
+$sql = 'SELECT Product_ID FROM product ORDER BY Product_ID DESC';
+$query = mysqli_query($connect,$sql);
+$resultid = mysqli_fetch_array($query,MYSQLI_NUM);
+$productid = $resultid[0]+1;
+
+$sql = 'INSERT INTO product (Product_ID, Product_Name, IMG_HEAD, User_Name, Product_Price, Product_Date, Product_Locate, Product_Ampher, Product_Info, Telephone, Product_Type) VALUES("'.$productid.'","'.$_POST['headproduct'].'","'.$_FILES['picfile1']['name'].'","Soap","'.$_POST['pdprice'].'",NOW(),"'.$_POST['province'].'","'.$_POST['ampher'].'","'.$_POST['info_pd'].'","'.$_POST['tel_phone'].'","'.$_POST['typeproduct'].'")';
 $query = mysqli_query($connect,$sql);
 
 if(!$query){
@@ -45,7 +60,7 @@ if(!$query){
 
 }
 else{
-    echo $_POST['ampher'];
+    
     echo "OK";
 }
 
