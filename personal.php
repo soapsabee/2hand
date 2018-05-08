@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-  <form method ='post' action = 'personal_updated.php'>      
+  <form method ='post' action = 'personal_updated.php' enctype="multipart/form-data">      
 <?php
 session_start();
 $strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
@@ -53,9 +53,10 @@ if (!$result) {
         echo '<center><table border = 1 bgcolor="white"><wight=100 hight=20>';
 					echo '<tr>';
 echo '<td>';
+
          echo "Username";
 		 echo '</td>';echo '<td>';
-		echo"<input type=text name=username value='$row[username]' disabled=disabled>".'<br>'; 
+		echo "<input type='text' name='username' value='$row[username]' disabled=disabled>".'<br>'; 
 		 echo '<input type="hidden" name="user2" value="'.$row['username'].'">'."\n";
 echo '</td>';
 echo '</tr>';
@@ -64,7 +65,16 @@ echo '<td>';
 		   echo "Password";
 		   echo '</td>';
 		   echo '<td>';
-			echo   "<input type=password name=pass value='$row[password]' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' required>".'<br>';
+			echo   "<input type='password' name='pass' value='$row[password]' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' required>".'<br>';
+echo '</td>';
+echo '</tr>';
+echo '<tr>';
+echo '<td>';
+echo "Profile";
+		   echo '</td>';
+           echo '<td>';
+           echo "<input type='file' name='picfile' size='50'>";
+        echo "<input type='hidden' name='MAX_FILE_SIZE' value='100000'>";
 echo '</td>';
 echo '</tr>';
 echo '<tr>';
@@ -72,7 +82,7 @@ echo '<td>';
 		     echo "Firstname";
 			  echo '</td>';
 		   echo '<td>';
-			echo "<input type=text name=Fname value='$row[Fname]' required >".'<br>';
+			echo "<input type='text' name='Fname' value='$row[Fname]' required >".'<br>';
 echo '</td>';
 echo '</tr>';
 echo '<tr>';
@@ -80,7 +90,7 @@ echo '<td>';
 			   echo "Lastname";
 			   echo '</td>';
 		   echo '<td>';
-			  echo "<input type=text name=Lname value='$row[Lname]' required >".'<br>';
+			  echo "<input type='text' name='Lname' value='$row[Lname]' required >".'<br>';
 echo '</td>';
 echo '</tr>';
 echo '<tr>';
@@ -91,15 +101,15 @@ echo '</td>';
 echo '<td>';  
 
 if("$row[gender]"=="Male"){
-    echo "<input type=radio name=gender value=Male checked=checked>"; 
+    echo "<input type='radio' name='gender' value='Male' checked=checked>"; 
     echo "Male";
-    echo "<input type=radio name=gender value=Female >";
+    echo "<input type='radio' name='gender' value='Female' >";
     echo "Female";
     echo "<br><br>";
 }elseif("$row[gender]"=="Female"){
-    echo "<input type=radio name=gender value=Male  >"; 
+    echo "<input type='radio' name='gender' value='Male'  >"; 
     echo "Male";
-    echo "<input type=radio name=gender value=Female  checked=checked>";
+    echo "<input type='radio' name='gender' value='Female'  checked=checked>";
     echo "Female";
     echo "<br><br>";
 }
@@ -110,7 +120,7 @@ echo '<td>';
 echo "Birth date";
 echo '</td>';
 echo '<td>';
-echo "<input type=date name=date value='$row[dob]' min=1952-01-01 max=2013-01-01 
+echo "<input type='date' name='date' value='$row[dob]' min='1952-01-01' max='2013-01-01' 
         title="."User age must not be less than 15 years. And not over 70 years old"." required>".'<br>';
 echo '</td>';
 echo '</tr>';
@@ -119,7 +129,7 @@ echo '<td>';
 echo "Address";
 			   echo '</td>';
 		   echo '<td>';
-              echo "<textarea rows=3 cols=55 name=address required>"."$row[address]"."</textarea>".'<br>';
+              echo "<textarea rows='3' cols='55' name='address' required>"."$row[address]"."</textarea>".'<br>';
               echo '</td>';
 echo '</tr>';
 echo '<tr>';
@@ -127,7 +137,7 @@ echo '<td>';
 echo "Telephone Number";
 			   echo '</td>';
 		   echo '<td>';
-              echo "<input type=text name=tele value='$row[telephone]' pattern='[+ 0-9]{10}' required>".'<br>';
+              echo "<input type='text' name='tele' value='$row[telephone]' pattern='[+ 0-9]{10}' required>".'<br>';
               echo '</td>';
 echo '</tr>';
 echo '<tr>';
@@ -135,7 +145,7 @@ echo '<td>';
 echo "Email";
 			   echo '</td>';
 		   echo '<td>';
-			  echo "<input type=email name=email value='$row[email]' pattern='[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}' required>".'<br>';
+			  echo "<input type='email' name='email' value='$row[email]' pattern='[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}' required>".'<br>';
  echo '</td>';
 echo '</tr>';
 echo '</table>';

@@ -22,8 +22,15 @@ if($strAction==""){
     exit(); 
 }
 $connect = mysqli_connect("localhost","root","","secondhand");
-$sql = 'UPDATE user SET username="'.$_POST['user2'].'",password="'.$_POST['pass'].'",Fname="'.$_POST['Fname'].'",Lname="'.$_POST['Lname'].'",
+$newfile = 'images/' . $_FILES['picfile']['name'];
+if (empty($_FILES['picfile']['tmp_name'])) {
+  $sql = 'UPDATE user SET username="'.$_POST['user2'].'",password="'.$_POST['pass'].'",Fname="'.$_POST['Fname'].'",Lname="'.$_POST['Lname'].'",
 gender="'.$_POST['gender'].'",dob="'.$_POST['date'].'",address="'.$_POST['address'].'",telephone="'.$_POST['tele'].'",email="'.$_POST['email'].'" WHERE username ="'.$_SESSION['username'].'"';
+} else if (copy($_FILES['picfile']['tmp_name'], $newfile)){
+  $sql = 'UPDATE user SET username="'.$_POST['user2'].'",password="'.$_POST['pass'].'",picfile="'.$_FILES['picfile']['name'].'",Fname="'.$_POST['Fname'].'",Lname="'.$_POST['Lname'].'",
+gender="'.$_POST['gender'].'",dob="'.$_POST['date'].'",address="'.$_POST['address'].'",telephone="'.$_POST['tele'].'",email="'.$_POST['email'].'" WHERE username ="'.$_SESSION['username'].'"';
+}
+
 $result = mysqli_query($connect,$sql);
 if (!$result) {
     echo mysqli_error().'<br>';
