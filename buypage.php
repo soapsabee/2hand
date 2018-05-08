@@ -1,5 +1,15 @@
 <!doctype html>
 <html lang="en">
+<?php 
+
+//อย่าลืมลบออก //
+
+ $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+ $sql = 'SELECT Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product';
+ $query = mysqli_query($connect,$sql);
+
+
+?>
 
 <head>
     <title>BUY</title>
@@ -56,75 +66,31 @@
     </nav>
     <br>
     <br>
+        <?php $numresult = mysqli_num_rows($query);
+            if($numresult==0){
+             echo "<h5 style=text-align:center;>ไม่มีเลยจ้า</h5>";
+            }
+        ?>
     <div class=" container text-center">
+        <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
         <div class="row">
             <div class="p">
                 <div class="col">
-                    <img class="pphoto" src="images/product1.jpg" alt="">
+                    <img class="pphoto" src="product_img/<?php $result['IMG_HEAD']; ?> " alt="">
                     <h5 class="pname">
-                        <b>The Legend of Zelda : BotW</b>
+                        <b><?php echo $result['Product_Name']; ?> <b>
                     </h5>
+                    <h6 class="price">
+                        <p><?php echo $result['Product_Price']." บาท"; ?> </p>
+                    </h6>
+                    <p><?php echo "จังหวัด:".$result['Product_Locate']; echo "<br>อำเภอ:".$result['Product_Ampher']; ?>  </p>
                     <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>Add to cart</a>
+                        <i class="addcart"></i>คลิกดูสินค้า</a>
                 </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="p">
-                <div class="col">
-                    <img class="pphoto" src="images/product2.jpg" alt="">
-                    <h5 class="pname">
-                        <b>Mario Odyssey</b>
-                    </h5>
-                    <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>Add to cart</a>
-                </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="p">
-                <div class="col">
-                    <img class="pphoto" src="images/product3.jpg" alt="">
-                    <h5 class="pname">
-                        <b>Splatoon2</b>
-                    </h5>
-                    <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>Add to cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="p">
-                <div class="col">
-                    <img class="pphoto" src="images/product4.jpg" alt="">
-                    <h5 class="pname">
-                        <b>Monster Hunter XX</b>
-                    </h5>
-                    <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>Add to cart</a>
-                </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="p">
-                <div class="col">
-                    <img class="pphoto" src="images/product5.jpg" alt="">
-                    <h5 class="pname">
-                        <b>ARMS</b>
-                    </h5>
-                    <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>Add to cart</a>
-                </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="p">
-                <div class="col">
-                    <img class="pphoto" src="images/product6.jpg" alt="">
-                    <h5 class="pname">
-                        <b>Pokken Tournament DX</b>
-                    </h5>
-                    <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>Add to cart</a>
-                </div>
-            </div>
-        </div>
+           </div>
+       </div>
+        <?php } ?>
+    </div>
 
 
         <!-- Optional JavaScript -->
