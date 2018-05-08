@@ -5,7 +5,12 @@
 //อย่าลืมลบออก //
 
  $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
- $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product';
+ if(isset($_GET['pdtype'])){
+ $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Type = "'.$_GET['pdtype'].'"';
+ }
+ else{
+    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product';
+ }
  $query = mysqli_query($connect,$sql);
 
 
@@ -25,80 +30,53 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger">
-                <b>Jack'Jack</b>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.html">เครื่องแต่งกายแฟชั่น</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="photo.html">สุขภาพและความงาม</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">มือถือและอุปกรณ์เสริม</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">ของเล่น สินค้าแม่และเด็ก</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สื่อบันเทิงและอุปกรณ์อิเล็กทรอนิกส์</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สินค้ามือสอง</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="search">
-                <input name="keyword" type="text" id="keyword" size="20">
-                <input name="iFind" type="button" id="iFind" value="Find">
-            </div>
-        </div>
-    </nav>
+<?php include("navbar_nonuser.php"); ?>
     <br>
     <br>
-        <?php $numresult = mysqli_num_rows($query);
-            if($numresult==0){
-             echo "<h5 style=text-align:center;>ไม่มีเลยจ้า</h5>";
-            }
-        ?>
-    <div class="container">
         
+    
+        <div id="showori">
+        <div class="container">
         <div class="row">
-
         <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
-    <div class="card" style="width:300px">
-  <img class="card-img-top" style="width:auto; height:250px;" src="product_img/<?php echo $result['IMG_HEAD']; ?>" alt="Card image">
+    <div class="card " style="width:300px">
+  <img class="card-img-top" style="width:auto; height:200px;" src="product_img/<?php echo $result['IMG_HEAD']; ?>" alt="Card image">
   <div class="card-body">
     <h4 class="card-title"><?php echo $result['Product_Name']; ?></h4>
     <p class="card-text"><?php echo $result['Product_Locate']; ?></p>
     <p class="card-text"><?php echo $result['Product_Price']; ?></p>
     <a href="page_product.php?productid=<?php echo $result['Product_ID']?>" class="btn btn-primary">See Profile</a>
-        </div>
-        </div>
  
-<?php } ?>
+ </div>
 </div>
-    </div>
+<?php } ?>
+        </div>
+        </div>
+        </div>
+        
+            
+            
+            <div class="container">
+            <div class="row" id="showup">
+
+            </div>
+            </div>
+            
+        
+
 
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
+        <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+            <script src="scriptsearch.js"></script>
 </body>
 
 </html>
