@@ -14,13 +14,18 @@
     border-color: rgb(215, 245, 217);
     background-color: rgb(122, 255, 95);
 }
+.pic2{
+    width: 40px;
+    height: 40px;
+    border:solid;
+}
 
 .navbar{
-    background-image: url("D:/wamp64/www/sp/images/background.jpg");
+    background-image: url("D:/wamp64/www/sp/2hand/images/pbackground.png");
 }
 
 body{
-    background-image: url("D:/wamp64/www/sp/images/background.jpg");
+    background-image: url("D:/wamp64/www/sp/2hand/images/pbackground.png");
     background-size: 100%;
     background-repeat: repeat;
 }

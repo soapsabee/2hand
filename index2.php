@@ -14,12 +14,39 @@
 </head>
 <?php include("modalLogin.html"); ?>
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger">
-                <b>Jack'Jack</b>
-            </a>
+        <?php session_start();
+            $connect = mysqli_connect("localhost","root","","secondhand");
+            $sql = 'SELECT picfile FROM user WHERE username ="'.$_SESSION['username'].'"';
+            $result = mysqli_query($connect,$sql);
+            if (!$result) {
+                echo mysqli_error().'<br>';
+                die('Can not access database!');
+            } else {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<img class="pic2 rounded-circle" src="images/'.$row['picfile'].'" alt="">&nbsp;';
+                }
+                
+            }
+            $sql = 'SELECT Fname FROM user WHERE username ="'.$_SESSION['username'].'"';
+            $result = mysqli_query($connect,$sql);
+            if (!$result) {
+                echo mysqli_error().'<br>';
+                die('Can not access database!');
+            } else {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<a class="navbar-brand js-scroll-trigger">';
+            echo '<b>'.$row['Fname'].'</b>';
+            echo '</a>';
+                }
+                
+            }
+            
+            
+            
+            ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,26 +54,32 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="" >แก้ไขข้อมูลผู้ใช้</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.html">เครื่องแต่งกายแฟชั่น</a>
+                        <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="photo.html">สุขภาพและความงาม</a>
+                        <a class="nav-link js-scroll-trigger" href="photo.html">กีฬา</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">มือถือและอุปกรณ์เสริม</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">ยานพาหนะ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">ของเล่น สินค้าแม่และเด็ก</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">บ้านและสวน</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สื่อบันเทิงและอุปกรณ์อิเล็กทรอนิกส์</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">แฟชั่น</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สินค้ามือสอง</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">สุขภาพ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">เกม</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
                     </li>
                 </ul>
             </div>

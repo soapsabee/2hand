@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" media="all" type="text/css">
 </head>
 <?php include("modalLogin.html"); ?>
 <body>
@@ -24,29 +24,36 @@
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#myModal" id="login">Sign In<br>Sign Up</a>
+                        <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#myModal" id="login">ลงชื่อเข้าใช้</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.html">เครื่องแต่งกายแฟชั่น</a>
+                        <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="photo.html">สุขภาพและความงาม</a>
+                        <a class="nav-link js-scroll-trigger" href="photo.html">กีฬา</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">มือถือและอุปกรณ์เสริม</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">ยานพาหนะ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">ของเล่น สินค้าแม่และเด็ก</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">บ้านและสวน</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สื่อบันเทิงและอุปกรณ์อิเล็กทรอนิกส์</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">แฟชั่น</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สินค้ามือสอง</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">สุขภาพ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">เกม</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
                     </li>
                 </ul>
             </div>
