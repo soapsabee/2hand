@@ -1,10 +1,11 @@
-
+<html>
 <form  name="form" action="page2.php" method="post" enctype="multipart/form-data">
     <table align= "center" border = "2">
         <tr><td>
         <center>--REGISTER--</center><br>
         Username
-        <input type="text" name="username" placeholder="Ex.PanatiPata" pattern="{6,}" required>
+        <input type="text" name="username" id="username" placeholder="Ex.PanatiPata" pattern="{6,}" required> <div id="spanrepeat"></div>
+        
         Password
         <input type="password" name="password" placeholder="Ex.AbCd1234" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
         Firstname 
@@ -33,8 +34,13 @@
         <br><br>
    
 
-        <center>   <input type="submit"  name="submit" value="Submit">
+        <center>   <input type="submit" id="submit"  name="submit" value="Submit">
       <input type="reset" value="Click to Reset"></center> 
         </td></td>	
     </table>
 </form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="checkrepeat.js"></script>
+
+</html>
