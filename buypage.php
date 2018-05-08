@@ -5,7 +5,11 @@
 //อย่าลืมลบออก //
 
  $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
- if(isset($_GET['pdtype'])){
+
+ if(isset($_GET['keyword'])){
+    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Name = "'.$_GET['keyword'].'"';
+ }
+ else if(isset($_GET['pdtype'])){
  $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Type = "'.$_GET['pdtype'].'"';
  }
  else{

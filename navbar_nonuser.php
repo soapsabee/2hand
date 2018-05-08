@@ -36,7 +36,7 @@
 
             <div class="search">
                 <input name="keyword" type="text" id="keyword" size="20">
-                <input name="iFind" type="button" id="iFind" value="Find">
+                
             </div>
         </div>
     </nav>
