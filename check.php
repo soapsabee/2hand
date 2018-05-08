@@ -10,12 +10,7 @@ $query = mysqli_query($connect,$sql);
 $row = mysqli_num_rows($query);
 
 if($row > 0){
-    echo '&nbsp';
-    echo '<span class="text-danger">Username นี้มีผู้ใช้แล้ว กรุณาใช้ชื่ออื่น</span>';
-}
-else{
-    echo '&nbsp';
-    echo '<span class="text-success">Username นี้สามารถใช้ได้</span>';
+    echo '&nbsp;<span class="text-danger">Username นี้มีผู้ใช้แล้ว กรุณาใช้ชื่ออื่น</span>';
 }
 
 

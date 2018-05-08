@@ -12,12 +12,18 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<?php include("modalLogin.html"); ?>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
         <?php session_start();
+        $strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+        if($strAction==""){
+            $message = "Please Login!";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo '<script>window.location.href = "index.php";</script>';
+            exit(); 
+        }else{
             $connect = mysqli_connect("localhost","root","","secondhand");
             $sql = 'SELECT picfile FROM user WHERE username ="'.$_SESSION['username'].'"';
             $result = mysqli_query($connect,$sql);
@@ -43,7 +49,7 @@
                 }
                 
             }
-            
+        }
             
             
             ?>
@@ -55,7 +61,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="" >แก้ไขข้อมูลผู้ใช้</a>
+                        <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>

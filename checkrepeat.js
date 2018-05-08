@@ -11,7 +11,7 @@ $(function(){
             success:function(html)
             {
                 $('#spanrepeat').html(html);
-                if(html=='<span class="text-danger">Username นี้มีผู้ใช้แล้ว กรุณาใช้ชื่ออื่น</span>'){
+                if(html=='&nbsp;<span class="text-danger">Username นี้มีผู้ใช้แล้ว กรุณาใช้ชื่ออื่น</span>'){
                     $('#submit').hide();
                 }
                 else{

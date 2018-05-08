@@ -16,6 +16,16 @@
 </head>
 
 <body>
+  <?php
+  session_start();
+  $strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+  if($strAction==""){
+      $message = "Please Login!";
+      echo "<script type='text/javascript'>alert('$message');</script>";
+      echo '<script>window.location.href = "index.php";</script>';
+      exit(); 
+  }
+  ?>
 <form action="insertpd.php" method="post" enctype="multipart/form-data" id="uploadForm">
     <div class="container">
       <div class="row">

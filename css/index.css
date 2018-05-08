@@ -21,11 +21,12 @@
 }
 
 .navbar{
-    background-image: url("D:/wamp64/www/sp/2hand/images/pbackground.png");
+    background-image: url("../images/nbackground.jpg");
+    background-size: 100%;
 }
 
 body{
-    background-image: url("D:/wamp64/www/sp/2hand/images/pbackground.png");
+    background-image: url("../images/background.jpg");
     background-size: 100%;
     background-repeat: repeat;
 }
