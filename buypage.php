@@ -5,7 +5,7 @@
 //อย่าลืมลบออก //
 
  $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
- $sql = 'SELECT Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product';
+ $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product';
  $query = mysqli_query($connect,$sql);
 
 
@@ -71,25 +71,23 @@
              echo "<h5 style=text-align:center;>ไม่มีเลยจ้า</h5>";
             }
         ?>
-    <div class=" container text-center">
-        <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+    <div class="container">
+        
         <div class="row">
-            <div class="p">
-                <div class="col">
-                    <img class="pphoto" src="product_img/<?php $result['IMG_HEAD']; ?> " alt="">
-                    <h5 class="pname">
-                        <b><?php echo $result['Product_Name']; ?> <b>
-                    </h5>
-                    <h6 class="price">
-                        <p><?php echo $result['Product_Price']." บาท"; ?> </p>
-                    </h6>
-                    <p><?php echo "จังหวัด:".$result['Product_Locate']; echo "<br>อำเภอ:".$result['Product_Ampher']; ?>  </p>
-                    <a href="#" class="btn btn-default">
-                        <i class="addcart"></i>คลิกดูสินค้า</a>
-                </div>
-           </div>
-       </div>
-        <?php } ?>
+
+        <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+    <div class="card" style="width:300px">
+  <img class="card-img-top" style="width:auto; height:250px;" src="product_img/<?php echo $result['IMG_HEAD']; ?>" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title"><?php echo $result['Product_Name']; ?></h4>
+    <p class="card-text"><?php echo $result['Product_Locate']; ?></p>
+    <p class="card-text"><?php echo $result['Product_Price']; ?></p>
+    <a href="page_product.php?productid=<?php echo $result['Product_ID']?>" class="btn btn-primary">See Profile</a>
+        </div>
+        </div>
+ 
+<?php } ?>
+</div>
     </div>
 
 

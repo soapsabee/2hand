@@ -100,15 +100,15 @@
    
     <div id="choosefile">
 
-      <input type="file" name="picfile1" id="picfile1" style="display:none;">
-      <input type="file" name="picfile2" id="picfile2" style="display:none;">
-      <input type="file" name="picfile3" id="picfile3" style="display:none;">
-      <input type="file" name="picfile4" id="picfile4" style="display:none;">
-      <input type="file" name="picfile5" id="picfile5" style="display:none;">
-      <input type="file" name="picfile6" id="picfile6" style="display:none;">
-      <input type="file" name="picfile7" id="picfile7" style="display:none;">
-      <input type="file" name="picfile8" id="picfile8" style="display:none;">
-      <input type="file" name="picfile9" id="picfile9" style="display:none;">
+      <input type="file" name="picfile1" id="picfile1" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile2" id="picfile2" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile3" id="picfile3" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile4" id="picfile4" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile5" id="picfile5" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile6" id="picfile6" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile7" id="picfile7" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile8" id="picfile8" style="display:none;" value="default.jpg">
+      <input type="file" name="picfile9" id="picfile9" style="display:none;" value="default.jpg">
 
 
 
