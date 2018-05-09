@@ -3,7 +3,7 @@
 include("connectdb.php");
 $sql = 'SELECT IMG_NAME FROM product_image WHERE Product_ID = "'.$_GET['productid'].'" ';
 $query = mysqli_query($connect,$sql);
-$sql2 = 'SELECT Product_Price,Telephone,Product_info From product WHERE Product_ID = "'.$_GET['productid'].'"';
+$sql2 = 'SELECT Product_Price,Telephone,Product_info AS product_date From product WHERE Product_ID = "'.$_GET['productid'].'"';
 $query2 = mysqli_query($connect,$sql2);
 $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
 ?>
@@ -22,7 +22,7 @@ $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
 </head>
   <body>
 
-
+  
 
 
 <div class="container">
