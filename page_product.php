@@ -3,9 +3,13 @@
 include("connectdb.php");
 $sql = 'SELECT IMG_NAME FROM product_image WHERE Product_ID = "'.$_GET['productid'].'" ';
 $query = mysqli_query($connect,$sql);
-$sql2 = 'SELECT Product_Price,Telephone,Product_info AS product_date From product WHERE Product_ID = "'.$_GET['productid'].'"';
+$sql2 = 'SELECT Product_Price,Telephone,Product_info  From product WHERE Product_ID = "'.$_GET['productid'].'"';
 $query2 = mysqli_query($connect,$sql2);
 $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
+$sql3 = 'SELECT picfile FROM user INNER JOIN product WHERE user.username=product.User_Name AND Product_ID = "'.$_GET['productid'].'"';
+$result3 = mysqli_query($connect,$sql3);
+$sql4 = 'SELECT Fname FROM user INNER JOIN product WHERE user.username=product.User_Name AND Product_ID = "'.$_GET['productid'].'"';
+$result4 = mysqli_query($connect,$sql4);
 ?>
 <html lang="en">
   <head>
@@ -22,16 +26,13 @@ $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
     
 </head>
   <body>
-
-  
-
-
+<br>
 <div class="container">
   <div class="row">
   <div class="information col-6">
     <div class="contact col-6">ราคา:<?php echo $result2['Product_Price']; ?> บาท</div>
-    <div class="contact col-6">รูปคนขาย</div>
-    <div class="contact col-12">คุยกับผู้ขาย</div>
+    <div class="contact col-6">ภาพสินค้าประกอบ >>>></div>
+    <div class="contact col-12">ติดต่อกับผู้ขายโดยตรง</div>
     <div class="contact col-12">เบอร์โทรติดต่อ:<?php echo $result2['Telephone']; ?></div>
 
     <div class="showinfo col-12">
@@ -75,7 +76,7 @@ $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
  </div>
 
  </div>
-
+ 
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -114,6 +115,7 @@ $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
     });
   });
 </script>
-
+<br>
+<center><button type="button" class="btn btn-danger" onClick = "window.location ='buypage.php'">ย้อนกลับ</button></center>
 </body>
 </html>

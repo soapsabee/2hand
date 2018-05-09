@@ -49,7 +49,7 @@
     <h4 class="card-title"><?php echo $result['Product_Name']; ?></h4>
     <p class="card-text"><?php echo $result['Product_Locate']; ?></p>
     <p class="card-text"><?php echo $result['Product_Price']; ?></p>
-    <a href="page_product.php?productid=<?php echo $result['Product_ID']?>" class="btn btn-primary">See Profile</a>
+    <a href="page_product.php?productid=<?php echo $result['Product_ID']?>" class="btn btn-primary">Detail</a>
  
  </div>
 </div>

@@ -17,14 +17,19 @@ $(function(){
                     if(data == 'NO'){
                         alert("Wrong Data");
                     }
-                    else{
+                    else if(data == "you can login"){
                         alert("Right Data");
                         window.location.href = "index2.php";
                     }
+                    else{
+                        alert("Welcome Admin");
+                        window.location.href = "admin.php";
+                    }
+                    }
                 }
+            
 
-
-            })
+            )
 
         }
 

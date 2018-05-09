@@ -7,12 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-
+  <br>
+<center><table bgcolor="white" border="5">
+<tr>
+<td>
+<br>
+                                                                <!--ตารางเลือกสินค้าเดือนปี-->
 <form action="report_product.php" method='post'>
-     เลือก เดือน-ปี <select name="month" id="">
+     <center>ระบุ เดือน-ปี <select name="month" id="">
           <option value="01">มกราคม</option>
           <option value="02">กุมภาพันธ์</option>
           <option value="03">มีนาคม</option>
@@ -34,7 +40,7 @@
           <option value="2018">2020</option>
       </select>
 
-      <input type="submit" value="find">
+      <input type="submit" value="find"></center>
 </form>
 
 <?php
@@ -42,14 +48,17 @@
     if(isset($_POST['month']) && isset($_POST['year']) ){
         $year = $_POST['year'];
         $month = $_POST['month'];
-        $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
-        $sql = "SELECT User_Fname,User_Lname,product.User_name,Day(Product_Date),COUNT(*) AS 'num' FROM product INNER JOIN User ON product.User_Name = User.User_Name Where Product_Date LIKE '$year-$month%'";
+        echo '<center>';
+        echo $year.'/'.$month;
+        echo '</center>';
+        $connect = mysqli_connect('localhost','root','','secondhand');
+        $sql = "SELECT user.Fname,user.Lname,product.User_Name,Day(Product_Date) AS 'Day',COUNT(*) AS 'Count' FROM user INNER JOIN product ON user.username=product.User_Name WHERE Product_Date LIKE '$year-$month%'";
         $query = mysqli_query($connect,$sql);
         $total = 0;
 
 ?>
    
-    <table border="solid 5px">
+    <center><table border="solid 5px"></center>
         <tr>
         <th>FirstName</th>
         <th>LastName</th>
@@ -58,12 +67,12 @@
         </tr>
 <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
         <tr>
-          <td><?php echo $result['User_Fname']?></td>
-          <td><?php echo $result['User_Lname']?></td>
-          <td><?php echo $result['User_name']; ?></td>
-            <td><?php echo $result['num']; ?></td>
+          <td><?php echo $result['Fname']?></td>
+          <td><?php echo $result['Lname']?></td>
+          <td><?php echo $result['User_Name']; ?></td>
+            <td><?php echo $result['Count']; ?></td>
         </tr>
-     <?php $total = $total + $result['num']; ?>
+     <?php $total = $total + $result['Count']; ?>
 <?php  }?>
 
         </table>
@@ -71,21 +80,24 @@
       
    <?php  }else{
 
+echo '<center>';
        echo "กรุณาระบุ เดือน-ปี";
-       
+       echo '</center>';
    } ?>
 
    <br>
    <br>
    <br>
+                                                                <!--จบตาราง1-->
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
-   <?php $connect = mysqli_connect('localhost','root','s5930213055*','Location');
+   <?php $connect = mysqli_connect('localhost','root','','Location');
+   mysqli_query($connect, "SET NAMES UTF8");
          $sql = 'SELECT name_th FROM provinces';
          $query = mysqli_query($connect,$sql);
    ?>
    <form action="report_product.php" method='post'>
-    กรุณาระบุจังหวัด:
+   <center>กรุณาระบุจังหวัด:
      <select name="province" id="">
      <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
         <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
@@ -93,14 +105,15 @@
      </select>
 
      <button type="submit">ค้นหา</button>
-        
+     </center>   
     </form>
+    <br>
 
     <?php
     
         if(isset($_POST['province'])){
             $province = $_POST['province'];
-            $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+            $connect = mysqli_connect('localhost','root','','secondhand');
             $sql = 'SELECT Product_ID,Product_Name,User_Name,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Locate = "'.$province.'"';
             $query = mysqli_query($connect,$sql);
 
@@ -108,7 +121,7 @@
     
     ?>
      
-     <table border="solid 50px;">
+     <center><table border="solid 50px;"></center>
         <th>Product_ID</th>
         <th>ProductName</th>
         <th>Username</th>
@@ -128,9 +141,17 @@
         </tr>
  <?php  } ?>
      </table>
-
+     <br>
+                                                        <!--จบตาราง2-->
         <?php } ?>
-
+        </td>
+        </tr>
+        </table>
+        </center>
+<br>
+<br>
+<br>
+        
 
       
     <!-- Optional JavaScript -->

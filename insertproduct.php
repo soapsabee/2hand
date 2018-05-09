@@ -45,7 +45,7 @@
       <option value="music">เครื่องดนตรี</option>
     </select>
   </div>
-
+ <!-- ฝากใส่ตัว logout ไว้ด้วย ตัวlogout ให้มันวิ่งไปหน้า clearsession.php-->
     <div class="form-group col-12">
       <label for="headproduct">หัวข้อสินค้าที่คุณต้องการขาย</label>
       <input type="text"
@@ -131,10 +131,11 @@
     
     <div class="form-group">
       <label for="">รายละเอียดสินค้า</label>
-      <textarea class="form-control col-6" name="info_pd" id="" rows="5"></textarea>
+      <textarea class="form-control col-6" name="info_pd" id="" rows="8"></textarea>
     </div>
 
    <?php include("connectlocate.php");
+   mysqli_query($connect, "SET NAMES UTF8");
          $sql = 'SELECT name_th,id From provinces';
          $query = mysqli_query($connect,$sql);
     ?>
@@ -174,7 +175,7 @@
     </div>
 
     <br>
-    <button type="submit" class="btn btn-success">ลงขาย</button>&nbsp;&nbsp;
+    <button type="submit" class="btn btn-success" onClick="window.location ='buypage.php'">ลงขาย</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-defualt" onClick="window.location ='index2.php'">ย้อนกลับ</button>
 </div>
   </form>
