@@ -1,11 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-<<<<<<< HEAD
-    <title>Title</title>
-=======
     <title>UpdateComplete</title>
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,12 +44,8 @@ if (!$result) {
 	 echo '</td>';
     echo '</tr>';
 	echo '</table>';
-<<<<<<< HEAD
-}        
-=======
 }
 mysqli_close($connect);        
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
 ?>
 <button type="button" class="btn btn-link" onClick = "window.location ='index2.php'">INDEX</button>
     <!-- Optional JavaScript -->

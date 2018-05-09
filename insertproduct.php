@@ -17,11 +17,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-  <?php
-=======
 <?php
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
   session_start();
   $strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
   if($strAction==""){
@@ -31,10 +27,7 @@
       exit(); 
   }
   ?>
-<<<<<<< HEAD
-=======
   <br>
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
 <form action="insertpd.php" method="post" enctype="multipart/form-data" id="uploadForm">
     <div class="container">
       <div class="row">

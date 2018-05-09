@@ -48,21 +48,14 @@
                 die('Can not access database!');
             } else {
                 while ($row = $result->fetch_assoc()) {
-<<<<<<< HEAD
-                    echo '<a class="navbar-brand js-scroll-trigger">';
-=======
                     echo '<a class="navbar-brand js-scroll-trigger" href="index2.php">';
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
             echo '<b>'.$row['Fname'].'</b>';
             echo '</a>';
                 }
                 
             }
         }
-<<<<<<< HEAD
-=======
         mysqli_close($connect);
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
           ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -71,34 +64,6 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
-<<<<<<< HEAD
-                <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="photo.html">กีฬา</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">ยานพาหนะ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">บ้านและสวน</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">แฟชั่น</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สุขภาพ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">เกม</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
-=======
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
                     <li class="nav-item">
@@ -127,7 +92,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="clearsession.php" >ออกจากระบบ</a>
->>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
                     </li>
                 </ul>
             </div>
