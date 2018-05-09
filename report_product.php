@@ -42,54 +42,8 @@
 
       <button type='submit' class="btn btn-success">ค้นหา</button>
 </form>
-
-<?php
-   
-    if(isset($_POST['month']) && isset($_POST['year']) ){
-        $year = $_POST['year'];
-        $month = $_POST['month'];
-        
-        echo '<center>';
-        echo $year.'/'.$month;
-        echo '</center>';
-        $connect = mysqli_connect('localhost','root','','secondhand');
-        $sql = "SELECT Fname,Lname,User_Name,COUNT(*) AS 'Count' FROM user INNER JOIN product ON user.username=product.User_Name WHERE Product_Date LIKE '$year-$month%'";
-        $query = mysqli_query($connect,$sql);
-        $total = 0;
-
-?>
-   
-    <center><table border="solid 5px"></center>
-        <tr>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>Username</th>
-        <th>จำนวนครั้งที่ประกาศขาย</th>
-        </tr>
-<?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
-        <tr>
-          <td><?php echo $result['Fname']?></td>
-          <td><?php echo $result['Lname']?></td>
-          <td><?php echo $result['User_Name']; ?></td>
-            <td><?php echo $result['Count']; ?></td>
-        </tr>
-     <?php $total = $total + $result['Count']; ?>
-<?php  }?>
-
-        </table>
-         Total:<?php echo $total; ?>
-      
-   <?php  }else{
-
-echo '<center>';
-       echo "กรุณาระบุ เดือน-ปี";
-       echo '</center>';
-   } ?>
-
-   <br>
-   <br>
-   <br>
-                                                                <!--จบตาราง1-->
+<br>
+<br>                                                               <!--จบตาราง1-->
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
    <?php $connect = mysqli_connect('localhost','root','','Location');
@@ -110,29 +64,32 @@ echo '<center>';
     </form>
     <br>
 
-    <?php
-    
-        if(isset($_POST['province'])){
-            
-            $province = $_POST['province'];
-            $connect = mysqli_connect('localhost','root','','secondhand');
-            mysqli_query($connect, "SET NAMES UTF8");
-            $sql = "SELECT Product_ID,Product_Name,User_Name,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Locate LIKE '$province'";
-            $query = mysqli_query($connect,$sql);
-
-       
-    
-    ?>
-     
-     <center><table border="solid 50px;"></center>
-        <th>Product_ID</th>
-        <th>ProductName</th>
-        <th>Username</th>
-        <th>Price</th>
-        <th>Province</th>
-        <th>Ampher</th>
-        
- <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+    <?php $connect = mysqli_connect('localhost','root','','Location');
+mysqli_query($connect, "SET NAMES UTF8");
+      $sql = 'SELECT name_th FROM provinces';
+      $query = mysqli_query($connect,$sql);
+?>
+<form action="report_show3.php" method='post'>
+<center>กรุณาระบุจังหวัด:
+  <select name="province" id="">
+  <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+     <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
+  <?php } ?>
+  </select>
+  <center>ระบุ เดือน-ปี <select name="month" id="">
+          <option value="01">มกราคม</option>
+          <option value="02">กุมภาพันธ์</option>
+          <option value="03">มีนาคม</option>
+          <option value="04">เมษายน</option>
+          <option value="05">พฤษภาคม</option>
+          <option value="06">มิถุนายน</option>
+          <option value="07">กรกฎาคม</option>
+          <option value="08">สิงหาคม</option>
+          <option value="09">กันยายน</option>
+          <option value="10">ตุลาคม</option>
+          <option value="11">พฤศจิกายน</option>
+          <option value="12">ธันวาคม</option>
+      </select></center>
 
   <button type='submit' class="btn btn-info">ค้นหา</button>
   </center>   
