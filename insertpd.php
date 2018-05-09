@@ -99,7 +99,7 @@ $query = mysqli_query($connect,$sql);
 $resultid = mysqli_fetch_array($query,MYSQLI_NUM);
 $productid = $resultid[0]+1;
 
-//อย่าลืมลบ ไอ soap ออก เอา $_SESSION['username'] มาใส่แทน
+//อย่าลืมลบ
 $sql = 'INSERT INTO product (Product_ID, Product_Name, IMG_HEAD, User_Name, Product_Price, Product_Date, Product_Locate, Product_Ampher, Product_Info, Telephone, Product_Type) VALUES("'.$productid.'","'.$_POST['headproduct'].'","'.$_FILES['picfile1']['name'].'","'.$_SESSION['username'].'","'.$_POST['pdprice'].'",NOW(),"'.$_POST['province'].'","'.$_POST['ampher'].'","'.$_POST['info_pd'].'","'.$_POST['tel_phone'].'","'.$_POST['typeproduct'].'")';
 $query = mysqli_query($connect,$sql);
 $errors = 0;
@@ -123,7 +123,7 @@ if(!$query){
 
 if($errors==0){
 
-    header("location:buypage.php"); 
+    header("location:myproduct.php"); 
 }
 ้้
 ?>
