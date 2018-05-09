@@ -14,7 +14,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
         <?php session_start();
@@ -44,13 +48,21 @@
                 die('Can not access database!');
             } else {
                 while ($row = $result->fetch_assoc()) {
+<<<<<<< HEAD
                     echo '<a class="navbar-brand js-scroll-trigger">';
+=======
+                    echo '<a class="navbar-brand js-scroll-trigger" href="index2.php">';
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
             echo '<b>'.$row['Fname'].'</b>';
             echo '</a>';
                 }
                 
             }
         }
+<<<<<<< HEAD
+=======
+        mysqli_close($connect);
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
           ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +71,7 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
+<<<<<<< HEAD
                 <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
                     </li>
@@ -85,13 +98,50 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
+=======
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=tech">เทคโนโลยี</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=sport">กีฬา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=car">ยานพาหนะ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=home">บ้านและสวน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=fashion">แฟชั่น</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=healty">สุขภาพ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=games">เกม</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=music">เครื่องดนตรี</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="clearsession.php" >ออกจากระบบ</a>
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
                     </li>
                 </ul>
             </div>
 
             <div class="search">
+<<<<<<< HEAD
                 <input name="keyword" type="text" id="keyword" size="20">
                 <input name="iFind" type="button" id="iFind" value="Find">
+=======
+                <form method='get' action='buypage.php' > 
+                    <input name="keyword" type="text" id="keyword" size="20">
+                    <input name="iFind" type="submit" id="iFind" value="Find">
+                </form>
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
             </div>
         </div>
     </nav>
@@ -103,12 +153,20 @@
     <div class=" container text-center">
         <div class="row">
             <div class="col">
+<<<<<<< HEAD
                 <a href="buypage.html">
+=======
+                <a href="buypage.php">
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
                     <img class="photo1 rounded-circle" src="images/buyicon.png" alt="">
                 </a>
             </div>
             <div class="col">
+<<<<<<< HEAD
                 <a href="insertproduct.html">
+=======
+                <a href="insertproduct.php">
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
                     <img class="photo2 rounded-circle" src="images/sellicon.png" alt="">
                 </a>
             </div>

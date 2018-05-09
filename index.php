@@ -15,6 +15,7 @@
 <?php include("modalLogin.html"); ?>
 <body>
     
+    
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger">
@@ -26,12 +27,17 @@
             </button>
             
             <div class="collapse navbar-collapse" id="navbarResponsive">
+<<<<<<< HEAD
                 <ul class="navbar-nav mr-auto">
 
+=======
+            <ul class="navbar-nav mr-auto">
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#myModal" id="login">ลงชื่อเข้าใช้</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>
                     </li>
                     <li class="nav-item">
@@ -54,16 +60,44 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
+=======
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=tech">เทคโนโลยี</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=sport">กีฬา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=car">ยานพาหนะ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=home">บ้านและสวน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=fashion">แฟชั่น</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=healty">สุขภาพ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=games">เกม</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=music">เครื่องดนตรี</a>
+>>>>>>> 7bd4880bece598be054dade5ef3d5d17abdf5b13
                     </li>
                 </ul>
             </div>
 
             <div class="search">
-                <input name="keyword" type="text" id="keyword" size="20">
-                <input name="iFind" type="button" id="iFind" value="Find">
+                <form method='get' action='buypage.php' > 
+                    <input name="keyword" type="text" id="keyword" size="20">
+                    <input name="iFind" type="submit" id="iFind" value="Find">
+                </form>
             </div>
         </div>
     </nav>
+        
+      
     <br>
     <br>
     <br>
