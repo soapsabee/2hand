@@ -76,7 +76,7 @@ mysqli_query($connect, "SET NAMES UTF8");
      <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
   <?php } ?>
   </select>
-  <center>ระบุ เดือน-ปี <select name="month" id="">
+  <center>ระบุ เดือน <select name="month" id="">
           <option value="01">มกราคม</option>
           <option value="02">กุมภาพันธ์</option>
           <option value="03">มีนาคม</option>

@@ -17,7 +17,7 @@
         $year = $_POST['year'];
         $month = $_POST['month'];
         $connect = mysqli_connect('localhost','root','','secondhand');
-        $sql = "SELECT Fname,Lname,User_Name,COUNT(*) AS 'Count' FROM user INNER JOIN product ON user.username=product.User_Name WHERE Product_Date LIKE '$year-$month%'";
+        $sql = "SELECT Fname,Lname,User_Name,COUNT(*) AS 'Count' FROM user INNER JOIN product ON user.username=product.User_Name WHERE Product_Date LIKE '$year-$month%' GROUP BY User_Name";
         $query = mysqli_query($connect,$sql);
         $total = 0;
 ?>
