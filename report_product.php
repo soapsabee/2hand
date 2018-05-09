@@ -102,10 +102,7 @@
             $province = $_POST['province'];
             $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
             $sql = 'SELECT Product_ID,Product_Name,User_Name,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Locate = "'.$province.'"';
-            $query = mysqli_query($connect,$sql);
-
-       
-    
+            $query = mysqli_query($connect,$sql);    
     ?>
      
      <table border="solid 50px;">
@@ -127,6 +124,65 @@
         <td><?php echo $result['Product_Ampher']; ?></td>
         </tr>
  <?php  } ?>
+     </table>
+
+        <?php } ?>
+
+
+
+    <?php $connect = mysqli_connect('localhost','root','s5930213055*','Location');
+         $sql = 'SELECT name_th FROM provinces';
+         $query = mysqli_query($connect,$sql);
+    ?>
+
+
+    <form action="report_product.php">
+
+    กรุณาระบุจังหวัด:เพื่อดูจำนวนการขายแต่ละประเภทสินค้า ในแต่ละเดือน
+     <select name="province2" id="">
+     <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+        <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
+     <?php } ?>
+     </select>
+
+       เลือก เดือน-ปี <select name="month2" id="">
+          <option value="01">มกราคม</option>
+          <option value="02">กุมภาพันธ์</option>
+          <option value="03">มีนาคม</option>
+          <option value="04">เมษายน</option>
+          <option value="05">พฤษภาคม</option>
+          <option value="06">มิถุนายน</option>
+          <option value="07">กรกฎาคม</option>
+          <option value="08">สิงหาคม</option>
+          <option value="09">กันยายน</option>
+          <option value="10">ตุลาคม</option>
+          <option value="11">พฤศจิกายน</option>
+          <option value="12">ธันวาคม</option>
+          
+      </select>
+     <input type="submit" value="ค้นหา">
+    
+    </form>
+
+
+<?php 
+
+if(isset($_POST['province2']) && isset($_POST['month2'])){
+            $province = $_POST['province2'];
+            $month = $_POST['month2'];
+            $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+            $sql = "SELECT Product_Type From product";
+            $query = mysqli_query($connect,$sql);
+
+    ?>
+    <table border="solid 10px;">
+     
+
+        <th>555</th>
+        <th>55</th>
+ 
+        
+ 
      </table>
 
         <?php } ?>
