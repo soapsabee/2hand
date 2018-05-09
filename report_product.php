@@ -5,12 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-
 <form action="report_product.php" method='post'>
      เลือก เดือน-ปี <select name="month" id="">
           <option value="01">มกราคม</option>
@@ -38,12 +37,16 @@
 </form>
 
 <?php
-    
+   
     if(isset($_POST['month']) && isset($_POST['year']) ){
         $year = $_POST['year'];
         $month = $_POST['month'];
-        $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
-        $sql = "SELECT User_Fname,User_Lname,product.User_name,Day(Product_Date),COUNT(*) AS 'num' FROM product INNER JOIN User ON product.User_Name = User.User_Name Where Product_Date LIKE '$year-$month%'";
+        echo $year;
+        echo "-";
+        echo $month;
+        $connect = mysqli_connect('localhost','root','','secondhand');
+        mysqli_query($connect, "SET NAMES UTF8");
+        $sql = "SELECT Fname,Lname,Username,COUNT(*) AS 'num' FROM product INNER JOIN user ON product.User_Name = user.username WHERE Product_Date LIKE '$year-$month%'";
         $query = mysqli_query($connect,$sql);
         $total = 0;
 
@@ -58,10 +61,10 @@
         </tr>
 <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
         <tr>
-          <td><?php echo $result['User_Fname']?></td>
-          <td><?php echo $result['User_Lname']?></td>
-          <td><?php echo $result['User_name']; ?></td>
-            <td><?php echo $result['num']; ?></td>
+          <td><?php echo $result['Fname'];?></td>
+          <td><?php echo $result['Lname'];?></td>
+          <td><?php echo $result['Username'];?></td>
+          <td><?php echo $result['num']; ?></td>
         </tr>
      <?php $total = $total + $result['num']; ?>
 <?php  }?>
@@ -81,6 +84,7 @@
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
    <?php $connect = mysqli_connect('localhost','root','','Location');
+         mysqli_query($connect, "SET NAMES UTF8");
          $sql = 'SELECT name_th FROM provinces';
          $query = mysqli_query($connect,$sql);
    ?>
@@ -99,9 +103,11 @@
     <?php
     
         if(isset($_POST['province'])){
+            
             $province = $_POST['province'];
             $connect = mysqli_connect('localhost','root','','secondhand');
-            $sql = 'SELECT Product_ID,Product_Name,User_Name,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Locate = "'.$province.'"';
+            mysqli_query($connect, "SET NAMES UTF8");
+            $sql = "SELECT Product_ID,Product_Name,User_Name,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Locate LIKE '$province'";
             $query = mysqli_query($connect,$sql);
 
        
