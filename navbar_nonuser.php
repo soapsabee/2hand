@@ -48,28 +48,28 @@
                         <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=tech">เทคโนโลยี</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="photo.html">กีฬา</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=sport">กีฬา</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">ยานพาหนะ</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=car">ยานพาหนะ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">บ้านและสวน</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=home">บ้านและสวน</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">แฟชั่น</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=fashion">แฟชั่น</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">สุขภาพ</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=healty">สุขภาพ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">เกม</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=games">เกม</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
+                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=music">เครื่องดนตรี</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="clearsession.php" >ออกจากระบบ</a>
