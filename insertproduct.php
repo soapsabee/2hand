@@ -173,7 +173,7 @@
     </div>
 
     <br>
-    <button type="submit" class="btn btn-success">ลงขาย</button>&nbsp;&nbsp;
+    <button type="submit" class="btn btn-success" onClick="window.location ='buypage.php'">ลงขาย</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-defualt" onClick="window.location ='index2.php'">ย้อนกลับ</button>
 </div>
   </form>

@@ -80,7 +80,7 @@
    <br>
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
-   <?php $connect = mysqli_connect('localhost','root','s5930213055*','Location');
+   <?php $connect = mysqli_connect('localhost','root','','Location');
          $sql = 'SELECT name_th FROM provinces';
          $query = mysqli_query($connect,$sql);
    ?>
@@ -100,7 +100,7 @@
     
         if(isset($_POST['province'])){
             $province = $_POST['province'];
-            $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+            $connect = mysqli_connect('localhost','root','','secondhand');
             $sql = 'SELECT Product_ID,Product_Name,User_Name,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Locate = "'.$province.'"';
             $query = mysqli_query($connect,$sql);
 
