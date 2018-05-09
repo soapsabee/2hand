@@ -11,10 +11,22 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/insertproduct.css">
+  <link rel="stylesheet" href="css/index.css">
   
 </head>
 
 <body>
+<?php
+  session_start();
+  $strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+  if($strAction==""){
+      $message = "Please Login!";
+      echo "<script type='text/javascript'>alert('$message');</script>";
+      echo '<script>window.location.href = "index.php";</script>';
+      exit(); 
+  }
+  ?>
+  <br>
 <form action="insertpd.php" method="post" enctype="multipart/form-data" id="uploadForm">
     <div class="container">
       <div class="row">
@@ -42,6 +54,7 @@
     <div class="form-group col-6">
       <label for="inputprice">ระบุราคาสินค้าที่เหมาะสม</label>
       <input name="pdprice" type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="pdprice" />
+      <label>บาท</label>
     </div>
 </div>
 
@@ -158,9 +171,14 @@
         class="form-control col-3" name="tel_phone" id="" aria-describedby="helpId" placeholder="">
       
     </div>
-    <button type="submit" class="btn btn-success">ลงขาย</button>
+
+    <br>
+    <button type="submit" class="btn btn-success">ลงขาย</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-defualt" onClick="window.location ='index2.php'">ย้อนกลับ</button>
 </div>
   </form>
+  <br>
+  
  
 
   <!-- Optional JavaScript -->

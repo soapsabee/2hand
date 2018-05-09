@@ -5,7 +5,7 @@
 function search($text){
 
     
- $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+ $connect = mysqli_connect('localhost','root','','secondhand');
  $text = mysqli_real_escape_string($connect, $text);
  if($text==''){
  $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product'; 

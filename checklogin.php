@@ -13,7 +13,7 @@
        $_SESSION['username'] = $_POST['username'];
        
     }
-       
+    mysqli_close($connect);   
 
 
 

@@ -4,7 +4,7 @@
 
 //อย่าลืมลบออก //
 
- $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+ $connect = mysqli_connect('localhost','root','','secondhand');
 
  if(isset($_GET['keyword'])){
     $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Name = "'.$_GET['keyword'].'"';
@@ -38,7 +38,7 @@
     <br>
     <br>
         
-    
+    <br>
         <div id="showori">
         <div class="container">
         <div class="row">

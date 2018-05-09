@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" media="all" type="text/css">
 </head>
 <?php include("modalLogin.html"); ?>
 <body>
@@ -27,36 +27,42 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#myModal" id="login">LOGIN</a>
+                        <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#myModal" id="login">ลงชื่อเข้าใช้</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=fashion">เครื่องแต่งกายแฟชั่น</a>
+                        <a class="nav-link js-scroll-trigger" href="index.html">เทคโนโลยี</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=healty">สุขภาพและความงาม</a>
+                        <a class="nav-link js-scroll-trigger" href="photo.html">กีฬา</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=mobile">มือถือและอุปกรณ์เสริม</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">ยานพาหนะ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=toy">ของเล่น สินค้าแม่และเด็ก</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">บ้านและสวน</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=tech">สื่อบันเทิงและอุปกรณ์อิเล็กทรอนิกส์</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">แฟชั่น</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="buypage.php">ทั้งหมด</a>
+                        <a class="nav-link js-scroll-trigger" href="contact.html">สุขภาพ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">เกม</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">เครื่องดนตรี</a>
                     </li>
                 </ul>
             </div>
 
             <div class="search">
                 <form method='get' action='buypage.php' > 
-                <input name="keyword" type="text" id="keyword" size="20">
-                <input name="iFind" type="submit" id="iFind" value="Find">
-        </form>
+                    <input name="keyword" type="text" id="keyword" size="20">
+                    <input name="iFind" type="submit" id="iFind" value="Find">
+                </form>
             </div>
         </div>
     </nav>

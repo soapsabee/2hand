@@ -18,6 +18,7 @@ $result2 = mysqli_fetch_array($query2,MYSQLI_ASSOC);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/page_product.css">
+    <link rel="stylesheet" href="css/index.css">
     
 </head>
   <body>

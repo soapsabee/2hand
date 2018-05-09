@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php 
-    $connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+    $connect = mysqli_connect('localhost','root','','secondhand');
     $sql = 'SELECT Product_Name,Product_Price,Product_Locate,Product_Ampher,Product_info,Telephone,IMG_NAME FROM product_image INNER JOIN product ON product_image.Product_ID = product.Product_ID WHERE product.Product_ID=2';
     $query = mysqli_query($connect,$sql);
     

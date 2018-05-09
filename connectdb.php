@@ -1,6 +1,6 @@
 <?php 
 
-$connect = mysqli_connect('localhost','root','s5930213055*','myhand');
+$connect = mysqli_connect('localhost','root','','secondhand');
 
 if(!$connect){
  echo die(mysqli_error());
