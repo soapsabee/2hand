@@ -21,10 +21,11 @@ $(function(){
                         alert("Right Data");
                         window.location.href = "index2.php";
                     }
+                    }
                 }
+            
 
-
-            })
+            )
 
         }
 

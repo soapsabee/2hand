@@ -15,7 +15,8 @@
 <?php
 $connect = mysqli_connect("localhost","root","","secondhand");
 $sql = 'INSERT INTO user
-VALUES ("'.$_POST["username"].'","'.$_POST["password"].'","'.$_FILES['picfile']['name'].'", "'.$_POST["Fname"].'", "'.$_POST["Lname"].'", "'.$_POST["gender"].'", "'.$_POST["date"].'", "'.$_POST["address"].'", "'.$_POST["telephone"].'", "'.$_POST["email"].'")';
+VALUES ("'.$_POST["username"].'","'.$_POST["password"].'","'.$_FILES['picfile']['name'].'", "'.$_POST["Fname"].'", "'.$_POST["Lname"].'",
+"'.$_POST["gender"].'", "'.$_POST["date"].'", "'.$_POST["address"].'", "'.$_POST["telephone"].'", "'.$_POST["email"].'","User")';
 $result = mysqli_query($connect,$sql);
 if (!$result) {
     echo mysqli_error().'<br>';

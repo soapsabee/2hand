@@ -4,7 +4,6 @@
     $sql = 'SELECT * FROM user WHERE username = "'.$_POST['username'].'" AND password = "'.$_POST['password'].'"';
     $query = mysqli_query($connect,$sql);
     $result = mysqli_num_rows($query);
-
     if($result <= 0){
         echo "NO";
     }
@@ -13,6 +12,7 @@
        $_SESSION['username'] = $_POST['username'];
        
     }
+    
     mysqli_close($connect);   
 
 
