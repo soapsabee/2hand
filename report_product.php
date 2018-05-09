@@ -42,10 +42,6 @@
 
       <button type='submit' class="btn btn-success">ค้นหา</button>
 </form>
-<<<<<<< HEAD
-<br>
-<br>                                                               <!--จบตาราง1-->
-=======
 
 <?php
    
@@ -94,7 +90,6 @@ echo '<center>';
    <br>
    <br>
                                                                 <!--จบตาราง1-->
->>>>>>> 1159b66f383e13dd49925071610fd5940e3e240e
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
    <?php $connect = mysqli_connect('localhost','root','','Location');
@@ -115,34 +110,6 @@ echo '<center>';
     </form>
     <br>
 
-<<<<<<< HEAD
-    <?php $connect = mysqli_connect('localhost','root','','Location');
-mysqli_query($connect, "SET NAMES UTF8");
-      $sql = 'SELECT name_th FROM provinces';
-      $query = mysqli_query($connect,$sql);
-?>
-<form action="report_show3.php" method='post'>
-<center>กรุณาระบุจังหวัด:
-  <select name="province" id="">
-  <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
-     <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
-  <?php } ?>
-  </select>
-  <center>ระบุ เดือน-ปี <select name="month" id="">
-          <option value="01">มกราคม</option>
-          <option value="02">กุมภาพันธ์</option>
-          <option value="03">มีนาคม</option>
-          <option value="04">เมษายน</option>
-          <option value="05">พฤษภาคม</option>
-          <option value="06">มิถุนายน</option>
-          <option value="07">กรกฎาคม</option>
-          <option value="08">สิงหาคม</option>
-          <option value="09">กันยายน</option>
-          <option value="10">ตุลาคม</option>
-          <option value="11">พฤศจิกายน</option>
-          <option value="12">ธันวาคม</option>
-      </select></center>
-=======
     <?php
     
         if(isset($_POST['province'])){
@@ -166,7 +133,6 @@ mysqli_query($connect, "SET NAMES UTF8");
         <th>Ampher</th>
         
  <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
->>>>>>> 1159b66f383e13dd49925071610fd5940e3e240e
 
   <button type='submit' class="btn btn-info">ค้นหา</button>
   </center>   
