@@ -7,11 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
+  <br>
+<center><table bgcolor="white" border="5">
+<tr>
+<td>
+<br>
+                                                                <!--ตารางเลือกสินค้าเดือนปี-->
 <form action="report_product.php" method='post'>
-     เลือก เดือน-ปี <select name="month" id="">
+     <center>ระบุ เดือน-ปี <select name="month" id="">
           <option value="01">มกราคม</option>
           <option value="02">กุมภาพันธ์</option>
           <option value="03">มีนาคม</option>
@@ -33,7 +40,7 @@
           <option value="2018">2020</option>
       </select>
 
-      <input type="submit" value="find">
+      <input type="submit" value="find"></center>
 </form>
 
 <?php
@@ -41,18 +48,18 @@
     if(isset($_POST['month']) && isset($_POST['year']) ){
         $year = $_POST['year'];
         $month = $_POST['month'];
-        echo $year;
-        echo "-";
-        echo $month;
+        
+        echo '<center>';
+        echo $year.'/'.$month;
+        echo '</center>';
         $connect = mysqli_connect('localhost','root','','secondhand');
-        mysqli_query($connect, "SET NAMES UTF8");
-        $sql = "SELECT Fname,Lname,Username,COUNT(*) AS 'num' FROM product INNER JOIN user ON product.User_Name = user.username WHERE Product_Date LIKE '$year-$month%'";
+        $sql = "SELECT Fname,Lname,User_Name,COUNT(*) AS 'Count' FROM user INNER JOIN product ON user.username=product.User_Name WHERE Product_Date LIKE '$year-$month%'";
         $query = mysqli_query($connect,$sql);
         $total = 0;
 
 ?>
    
-    <table border="solid 5px">
+    <center><table border="solid 5px"></center>
         <tr>
         <th>FirstName</th>
         <th>LastName</th>
@@ -61,12 +68,12 @@
         </tr>
 <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
         <tr>
-          <td><?php echo $result['Fname'];?></td>
-          <td><?php echo $result['Lname'];?></td>
-          <td><?php echo $result['Username'];?></td>
-          <td><?php echo $result['num']; ?></td>
+          <td><?php echo $result['Fname']?></td>
+          <td><?php echo $result['Lname']?></td>
+          <td><?php echo $result['User_Name']; ?></td>
+            <td><?php echo $result['Count']; ?></td>
         </tr>
-     <?php $total = $total + $result['num']; ?>
+     <?php $total = $total + $result['Count']; ?>
 <?php  }?>
 
         </table>
@@ -74,22 +81,24 @@
       
    <?php  }else{
 
+echo '<center>';
        echo "กรุณาระบุ เดือน-ปี";
-       
+       echo '</center>';
    } ?>
 
    <br>
    <br>
    <br>
+                                                                <!--จบตาราง1-->
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
    <?php $connect = mysqli_connect('localhost','root','','Location');
-         mysqli_query($connect, "SET NAMES UTF8");
+   mysqli_query($connect, "SET NAMES UTF8");
          $sql = 'SELECT name_th FROM provinces';
          $query = mysqli_query($connect,$sql);
    ?>
    <form action="report_product.php" method='post'>
-    กรุณาระบุจังหวัด:
+   <center>กรุณาระบุจังหวัด:
      <select name="province" id="">
      <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
         <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
@@ -97,8 +106,9 @@
      </select>
 
      <button type="submit">ค้นหา</button>
-        
+     </center>   
     </form>
+    <br>
 
     <?php
     
@@ -114,7 +124,7 @@
     
     ?>
      
-     <table border="solid 50px;">
+     <center><table border="solid 50px;"></center>
         <th>Product_ID</th>
         <th>ProductName</th>
         <th>Username</th>
@@ -134,9 +144,17 @@
         </tr>
  <?php  } ?>
      </table>
-
+     <br>
+                                                        <!--จบตาราง2-->
         <?php } ?>
-
+        </td>
+        </tr>
+        </table>
+        </center>
+<br>
+<br>
+<br>
+        
 
       
     <!-- Optional JavaScript -->

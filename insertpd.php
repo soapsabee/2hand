@@ -123,7 +123,7 @@ if(!$query){
 
 if($errors==0){
 
-    header("location:index.php"); 
+    header("location:buypage.php"); 
 }
 ้้
 ?>

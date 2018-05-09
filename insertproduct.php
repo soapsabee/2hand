@@ -130,10 +130,11 @@
     
     <div class="form-group">
       <label for="">รายละเอียดสินค้า</label>
-      <textarea class="form-control col-6" name="info_pd" id="" rows="5"></textarea>
+      <textarea class="form-control col-6" name="info_pd" id="" rows="8"></textarea>
     </div>
 
    <?php include("connectlocate.php");
+   mysqli_query($connect, "SET NAMES UTF8");
          $sql = 'SELECT name_th,id From provinces';
          $query = mysqli_query($connect,$sql);
     ?>
