@@ -100,18 +100,15 @@ $resultid = mysqli_fetch_array($query,MYSQLI_NUM);
 $productid = $resultid[0]+1;
 
 //อย่าลืมลบ ไอ soap ออก เอา $_SESSION['username'] มาใส่แทน
-$sql = 'INSERT INTO product (Product_ID, Product_Name, IMG_HEAD, User_Name, Product_Price, Product_Date, Product_Locate, Product_Ampher, Product_Info, Telephone, Product_Type) VALUES("'.$productid.'","'.$_POST['headproduct'].'","'.$_FILES['picfile1']['name'].'","Soap","'.$_POST['pdprice'].'",NOW(),"'.$_POST['province'].'","'.$_POST['ampher'].'","'.$_POST['info_pd'].'","'.$_POST['tel_phone'].'","'.$_POST['typeproduct'].'")';
+$sql = 'INSERT INTO product (Product_ID, Product_Name, IMG_HEAD, User_Name, Product_Price, Product_Date, Product_Locate, Product_Ampher, Product_Info, Telephone, Product_Type) VALUES("'.$productid.'","'.$_POST['headproduct'].'","'.$_FILES['picfile1']['name'].'","'.$_SESSION['username'].'","'.$_POST['pdprice'].'",NOW(),"'.$_POST['province'].'","'.$_POST['ampher'].'","'.$_POST['info_pd'].'","'.$_POST['tel_phone'].'","'.$_POST['typeproduct'].'")';
 $query = mysqli_query($connect,$sql);
-
+$errors = 0;
 if(!$query){
 
     die(mysqli_error($connect));
+    $errors++;
+}
 
-}
-else{
-    
-    echo "OK";
-}
 $i = 0;
 while($i < count($filepic)){$sql = 'INSERT INTO product_image (IMG_ID,IMG_NAME,Product_ID) VALUES(NULL,"'.$filepic[$i].'","'.$productid.'")';
     
@@ -121,11 +118,12 @@ $i++;
 if(!$query){
 
     die(mysqli_error($connect));
-
-}
-else{
-    
-    echo "OK";
+    $errors++;
 }
 
+if($errors==0){
+
+    header("location:index.php"); 
+}
+้้
 ?>

@@ -44,7 +44,7 @@
       <option value="music">เครื่องดนตรี</option>
     </select>
   </div>
-
+ <!-- ฝากใส่ตัว logout ไว้ด้วย ตัวlogout ให้มันวิ่งไปหน้า clearsession.php-->
     <div class="form-group col-12">
       <label for="headproduct">หัวข้อสินค้าที่คุณต้องการขาย</label>
       <input type="text"
