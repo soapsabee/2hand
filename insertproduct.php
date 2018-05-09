@@ -134,7 +134,8 @@
     </div>
 
    <?php include("connectlocate.php");
-         $sql = 'SELECT name_en,id From provinces';
+   mysqli_query($connect, "SET NAMES UTF8");
+         $sql = 'SELECT name_th,id From provinces';
          $query = mysqli_query($connect,$sql);
     ?>
 
@@ -142,7 +143,7 @@
       <label for="">ระบุพื้นที่ของสินค้า</label>
       <select class="form-control col-3" name="province" id="province" >
       <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
-        <option id="option" value="<?php echo $result['name_en']; ?>"><?php echo $result["name_en"];?></option>
+        <option id="option" value="<?php echo $result['name_th']; ?>"><?php echo $result["name_th"];?></option>
         <?php  } ?>
       </select>
     </div>
@@ -150,14 +151,14 @@
 
   <?php 
   
-  $sql2 = 'SELECT name_en,province_id From amphures ';
+  $sql2 = 'SELECT name_th,province_id From amphures ';
     $query = mysqli_query($connect,$sql2); ?>
    
     <div class="form-group" id="test">
     <label for="">อำเภอ</label>
     <select class="form-control col-3" name="ampher" id="ampher">
     <?php while($result =mysqli_fetch_array($query,MYSQLI_ASSOC)){?>
-    <option id=option value=<?php echo $result['name_en'];?> ><?php echo $result['name_en'];?></option>
+    <option id=option value=<?php echo $result['name_th'];?> ><?php echo $result['name_th'];?></option>
     <?php } ?>
     
     </select>

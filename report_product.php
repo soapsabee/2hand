@@ -16,6 +16,7 @@
 <tr>
 <td>
 <br>
+                                                                <!--ตารางเลือกสินค้าเดือนปี-->
 <form action="report_product.php" method='post'>
      <center>ระบุ เดือน-ปี <select name="month" id="">
           <option value="01">มกราคม</option>
@@ -87,17 +88,19 @@ echo '<center>';
    <br>
    <br>
    <br>
+                                                                <!--จบตาราง1-->
    <!--ตาราง เลือกสินค้าที่มีตามจังหวัดต่างๆ -->
 
    <?php $connect = mysqli_connect('localhost','root','','Location');
-         $sql = 'SELECT name_en FROM provinces';
+   mysqli_query($connect, "SET NAMES UTF8");
+         $sql = 'SELECT name_th FROM provinces';
          $query = mysqli_query($connect,$sql);
    ?>
    <form action="report_product.php" method='post'>
    <center>กรุณาระบุจังหวัด:
      <select name="province" id="">
      <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
-        <option value="<?php echo $result['name_en']; ?>"><?php echo $result['name_en']; ?></option>
+        <option value="<?php echo $result['name_th']; ?>"><?php echo $result['name_th']; ?></option>
      <?php } ?>
      </select>
 
@@ -139,12 +142,16 @@ echo '<center>';
  <?php  } ?>
      </table>
      <br>
-
+                                                        <!--จบตาราง2-->
         <?php } ?>
         </td>
         </tr>
         </table>
         </center>
+<br>
+<br>
+<br>
+        
 
       
     <!-- Optional JavaScript -->
