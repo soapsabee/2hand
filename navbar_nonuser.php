@@ -48,6 +48,9 @@
                         <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="myproduct.php">สินค้าของฉัน</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="buypage.php?pdtype=tech">เทคโนโลยี</a>
                     </li>
                     <li class="nav-item">

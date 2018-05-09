@@ -7,13 +7,13 @@
  $connect = mysqli_connect('localhost','root','','secondhand');
 
  if(isset($_GET['keyword'])){
-    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Name = "'.$_GET['keyword'].'"';
+    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher,Product_Info  FROM product WHERE Product_Name = "'.$_GET['keyword'].'"';
  }
  else if(isset($_GET['pdtype'])){
- $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product WHERE Product_Type = "'.$_GET['pdtype'].'"';
+ $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher,Product_Info  FROM product WHERE Product_Type = "'.$_GET['pdtype'].'"';
  }
  else{
-    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher FROM product';
+    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher,Product_Info  FROM product';
  }
  $query = mysqli_query($connect,$sql);
 
@@ -43,12 +43,13 @@
         <div class="container">
         <div class="row">
         <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+            <br>
     <div class="card " style="width:300px">
   <img class="card-img-top" style="width:auto; height:200px;" src="product_img/<?php echo $result['IMG_HEAD']; ?>" alt="Card image">
   <div class="card-body">
     <h4 class="card-title"><?php echo $result['Product_Name']; ?></h4>
-    <p class="card-text"><?php echo $result['Product_Locate']; ?></p>
-    <p class="card-text"><?php echo $result['Product_Price']; ?></p>
+    <p class="card-text"><?php echo $result['Product_Info']; ?></p>
+    <p class="card-text"><?php echo $result['Product_Price'].' บาท'; ?></p>
     <a href="page_product.php?productid=<?php echo $result['Product_ID']?>" class="btn btn-primary">Detail</a>
  
  </div>

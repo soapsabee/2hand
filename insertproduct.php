@@ -48,12 +48,12 @@
     <div class="form-group col-12">
       <label for="headproduct">หัวข้อสินค้าที่คุณต้องการขาย</label>
       <input type="text"
-        class="form-control col-6" name="headproduct" id="" aria-describedby="helpId" placeholder="">
+        class="form-control col-6" name="headproduct" id="" aria-describedby="helpId" placeholder="" required>
      
     </div>
     <div class="form-group col-6">
       <label for="inputprice">ระบุราคาสินค้าที่เหมาะสม</label>
-      <input name="pdprice" type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="pdprice" />
+      <input name="pdprice" type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="pdprice" required/>
       <label>บาท</label>
     </div>
 </div>
@@ -130,7 +130,7 @@
     
     <div class="form-group">
       <label for="">รายละเอียดสินค้า</label>
-      <textarea class="form-control col-6" name="info_pd" id="" rows="8"></textarea>
+      <textarea class="form-control col-6" name="info_pd" id="" rows="8" required></textarea>
     </div>
 
    <?php include("connectlocate.php");
@@ -169,12 +169,12 @@
     <div class="form-group">
       <label for="">ระบุเบอร์โทรศัพท์</label>
       <input type="tel"
-        class="form-control col-3" name="tel_phone" id="" aria-describedby="helpId" placeholder="">
+        class="form-control col-3" name="tel_phone" id="" aria-describedby="helpId" placeholder="" pattern='[+ 0-9]{10}' required>
       
     </div>
 
     <br>
-    <button type="submit" class="btn btn-success" onClick="window.location ='buypage.php'">ลงขาย</button>&nbsp;&nbsp;
+    <button type="submit" class="btn btn-success" onClick="window.location ='myproduct.php'">ลงขาย</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-defualt" onClick="window.location ='index2.php'">ย้อนกลับ</button>
 </div>
   </form>

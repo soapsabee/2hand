@@ -1,8 +1,26 @@
 <!doctype html>
 <html lang="en">
+<?php 
+
+//อย่าลืมลบออก //
+session_start();
+$strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+if($strAction==""){
+    $message = "Please Login!";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo '<script>window.location.href = "index.php";</script>';
+    exit(); 
+}
+ $connect = mysqli_connect('localhost','root','','secondhand');
+    $sql = 'SELECT Product_ID,Product_Name,IMG_HEAD,Product_Price,Product_Locate,Product_Ampher,Product_Info 
+    FROM product INNER JOIN user ON product.User_Name=user.username WHERE user.username ="'.$_SESSION['username'].'"';
+ $query = mysqli_query($connect,$sql);
+
+
+?>
 
 <head>
-    <title>Index</title>
+    <title>BUY</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,14 +28,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="css/buypage.css">
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-        <?php session_start();
+        <?php 
         $strAction = isset($_SESSION['username']) ? $_SESSION['username'] : '';
         if($strAction==""){
             $message = "Please Login!";
@@ -59,8 +78,8 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="personal.php" >แก้ไขข้อมูลผู้ใช้</a>
                     </li>
                     <li class="nav-item">
@@ -97,46 +116,62 @@
             </div>
 
             <div class="search">
-                <form method='get' action='buypage.php' > 
-                    <input name="keyword" type="text" id="keyword" size="20">
-                    <input name="iFind" type="submit" id="iFind" value="Find">
-                </form>
+                <input name="keyword" type="text" id="keyword" size="20">
+                
             </div>
         </div>
     </nav>
     <br>
     <br>
+        
     <br>
-    <br>
-    <br>
-    <div class=" container text-center">
+        <div id="showori">
+        <div class="container">
         <div class="row">
-            <div class="col">
-                <a href="buypage.php">
-                    <img class="photo1 rounded-circle" src="images/buyicon.png" alt="">
-                </a>
-            </div>
-            <div class="col">
-                <a href="insertproduct.php">
-                    <img class="photo2 rounded-circle" src="images/sellicon.png" alt="">
-                </a>
-            </div>
+        <br>
+        <?php while($result = mysqli_fetch_array($query,MYSQLI_ASSOC)){ ?>
+            <form name ="frmDelete" method="POST" action ="myproduct2.php">
+    <div class="card " style="width:300px">
+  <img class="card-img-top" style="width:auto; height:200px;" src="product_img/<?php echo $result['IMG_HEAD']; ?>" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title"><?php echo $result['Product_Name']; ?></h4>
+    <p class="card-text"><?php echo $result['Product_Info']; ?></p>
+    <p class="card-text"><?php echo $result['Product_Price'].' บาท'; ?></p>
+    <input type="hidden" name="id2" value = "<?php echo $result['Product_ID']?>" >
+    <button type='submit' class="btn btn-warning" name ="smtUpdate">แก้ไขข้อมูลสินค้า</button>
+    <input type="hidden" name="id" value = "<?php echo $result['Product_ID']?>" >
+    &nbsp;&nbsp;&nbsp;<button type='submit' class="btn btn-danger" name ="smtDelete">ลบสินค้า</button>
+ </div>
+</div>
+<?php } ?>
         </div>
-    </div>
+        </div>
+        </div>
+        
+            
+            
+            <div class="container">
+            <div class="row" id="showup">
+
+            </div>
+            </div>
+            
+        
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   
-    <script
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-        <script src="scriptlogin.js"></script>
+  <script language ="JavaScript" >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+            <script src="scriptsearch.js"></script>
 </body>
 
 </html>

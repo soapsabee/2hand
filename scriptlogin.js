@@ -23,7 +23,7 @@ $(function(){
                     }
                     else{
                         alert("Welcome Admin");
-                        window.location.href = "admin.php";
+                        window.location.href = "report_product.php";
                     }
                     }
                 }

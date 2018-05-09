@@ -155,7 +155,7 @@ echo '</table>';
 ?>
 <br>
 <input type = "submit" value="Update">&nbsp;&nbsp;
-<button type="button" class="btn btn-link" onClick = "window.location ='index.php'">INDEX</button>
+<button type="button" class="btn btn-link" onClick = "window.location ='index2.php'">INDEX</button>
 </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
